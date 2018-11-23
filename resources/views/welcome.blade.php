@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="jumbotron text-center">
-	<h1>Laratter</h1>
+<div class="jumbotron text-center bg">
+	<h1><strong>Laratter</strong></h1>
 	<nav>
 		<ul class="nav nav-pills">
 			<li class="nav-item">
@@ -12,18 +12,21 @@
 	</nav>
 </div>
 <div class="row">
-	<form action="/messages/create" method="post" enctype="multipart/form-data" novalidate>
-		<div class="form-group @if($errors->has('message')) was-validated @endif">
+	<form action="/messages/create" method="post" enctype="multipart/form-data" class="mx-auto" novalidate>
+		<div style="display: inline-flex" class="form-group @if($errors->has('message')) was-validated @endif">
 			{{ csrf_field() }}
-			<input type="text" name="message" class="form-control" placeholder="Qué estás pensando?" required />
+			<input type="text" name="message" class="form-control bg-aliceblue borde" placeholder="Qué estás pensando?" required />
+			<div>
+				<label class="btn btn-outline-success input2" for="sub-archivo"><strong>Subir</strong></label>
+				<input type="file" class="form-control-file" name="image" id="sub-archivo">
+			</div>
 			@if ($errors->has('message'))
 				@foreach ($errors->get('message') as $error)
 							<div class="invalid-feedback">
 								{{ $error }}
 							</div>
 				@endforeach
-			@endif
-			<input type="file" class="form-control-file" name="image">
+				@endif
 		</div>
 	</form>
 </div>

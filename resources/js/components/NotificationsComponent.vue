@@ -1,8 +1,14 @@
 <template>
-  <div class="dropdown-menu">
-    <a :href="'/' + notification.data.follower.username" class="dropdown-item" v-for="notification in notifications">
-      @{{ notification.data.follower.username }} te ha seguido!
-    </a>
+  <div class="border border-primary dropdown-menu input2 width-noti">
+    {{ empty() }}
+    <p class="altura-noti" v-for="(notification,i) in notifications">
+      <a :href="'/' + notification.data.follower.username" style="text-overflow: ellipsis; overflow: hidden" class="btn btn-outline-primary text-secondary dropdown-item" v-if="!notification.data.privateMessage.conversation_id && i<10">
+        <img class="avatar-noti" v-bind:src="notification.data.follower.avatar">  |  <strong>@{{ notification.data.follower.username }}</strong> te ha seguido!
+      </a>
+      <a :href="'/conversations/' + notification.data.privateMessage.conversation_id" style="text-overflow: ellipsis; overflow: hidden" class="btn btn-outline-primary text-secondary dropdown-item" v-if="notification.data.privateMessage.conversation_id && i<10">
+        <img class="avatar-noti" v-bind:src="notification.data.follower.avatar">  |  <strong>{{ notification.data.follower.name }}:</strong> "{{ notification.data.privateMessage.message }}"
+      </a>
+    </p>
   </div>
 </template>
 
@@ -11,7 +17,7 @@ export default {
   props: ['user'],
   data() {
     return {
-      notifications: []
+      notifications: [],
     }
   },
   mounted() {
@@ -24,6 +30,16 @@ export default {
             this.notifications.unshift(notification);
           });
       });
+  },
+  methods: {
+    empty: function (notifications) {
+            let i = 0
+            for(i in this.notifications){ 
+              if (!this.notifications[i].data.privateMessage) {
+                this.$set(this.notifications[i].data, 'privateMessage', { conversation_id: '', message: '' })
+              } 
+            }
+    }
   }
 }
 </script>

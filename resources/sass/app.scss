@@ -8,7 +8,99 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+body {
+  padding-top: 55px; /* Relleno superior igual a la altura de la cabecera*/
+}
+
+input[type="file"]#sub-archivo {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-fixed-top {
+  width: 100%; /* hacemos que la cabecera ocupe el ancho completo de la página */
+	left: 0; /* Posicionamos la cabecera al lado izquierdo */
+	top: 0; /* Posicionamos la cabecera pegada arriba */
+  position: fixed; /* Hacemos que la cabecera tenga una posición fija */
+  z-index: 2;
+}
+
+#general {
+  background: rgba(187,252,239,1);
+  background: -moz-linear-gradient(left, rgba(187,252,239,1) 0%, rgba(63,233,207,1) 47%, rgba(208,241,234,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(187,252,239,1)), color-stop(47%, rgba(63,233,207,1)), color-stop(100%, rgba(208,241,234,1)));
+  background: -webkit-linear-gradient(left, rgba(187,252,239,1) 0%, rgba(63,233,207,1) 47%, rgba(208,241,234,1) 100%);
+  background: -o-linear-gradient(left, rgba(187,252,239,1) 0%, rgba(63,233,207,1) 47%, rgba(208,241,234,1) 100%);
+  background: -ms-linear-gradient(left, rgba(187,252,239,1) 0%, rgba(63,233,207,1) 47%, rgba(208,241,234,1) 100%);
+  background: linear-gradient(to right, rgba(187,252,239,1) 0%, rgba(63,233,207,1) 47%, rgba(208,241,234,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbfcef', endColorstr='#d0f1ea', GradientType=1 );
+}
+
+.width-noti {
+  max-width: 375px;
+  max-height: 470px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word; 
+}
+.altura-noti {
+  height: 30px !important;
+}
+
+
+.avatar-noti {
+  border-radius: 50%;
+  width: 35px;
+}
+
+.text-25 {
+  font-size: 65%;
+}
+
+.p-menor {
+  padding-bottom: 0.5px;
+}
+
+.nav-color, .bg-lightseagreen {
+  background-color: lightseagreen;
+}
+
+.borde {
+  border-color: lightseagreen;
+}
+
+.input2, .bg-aliceblue {
+  background-color: aliceblue;
+}
+
+.barra-user {
+  border-color: cornflowerblue;
+  background-color: aliceblue;
+  color: grey;
+}
+
+.text-grey {
+  color: grey;
+}
+
+.bg {
+  background-image: url(../../storage/app/public/fondo.png);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }

@@ -59116,6 +59116,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['user'],
@@ -59134,6 +59140,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         _this.notifications.unshift(notification);
       });
     });
+  },
+
+  methods: {
+    empty: function empty(notifications) {
+      var i = 0;
+      for (i in this.notifications) {
+        if (!this.notifications[i].data.privateMessage) {
+          this.$set(this.notifications[i].data, 'privateMessage', { conversation_id: '', message: '' });
+        }
+      }
+    }
   }
 });
 
@@ -59147,23 +59164,74 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "dropdown-menu" },
-    _vm._l(_vm.notifications, function(notification) {
-      return _c(
-        "a",
-        {
-          staticClass: "dropdown-item",
-          attrs: { href: "/" + notification.data.follower.username }
-        },
-        [
-          _vm._v(
-            "\n    @" +
-              _vm._s(notification.data.follower.username) +
-              " te ha seguido!\n  "
-          )
-        ]
-      )
-    })
+    { staticClass: "border border-primary dropdown-menu input2 width-noti" },
+    [
+      _vm._v("\n  " + _vm._s(_vm.empty()) + "\n  "),
+      _vm._l(_vm.notifications, function(notification, i) {
+        return _c("p", { staticClass: "altura-noti" }, [
+          !notification.data.privateMessage.conversation_id && i < 10
+            ? _c(
+                "a",
+                {
+                  staticClass:
+                    "btn btn-outline-primary text-secondary dropdown-item",
+                  staticStyle: {
+                    "text-overflow": "ellipsis",
+                    overflow: "hidden"
+                  },
+                  attrs: { href: "/" + notification.data.follower.username }
+                },
+                [
+                  _c("img", {
+                    staticClass: "avatar-noti",
+                    attrs: { src: notification.data.follower.avatar }
+                  }),
+                  _vm._v("  |  "),
+                  _c("strong", [
+                    _vm._v("@" + _vm._s(notification.data.follower.username))
+                  ]),
+                  _vm._v(" te ha seguido!\n    ")
+                ]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          notification.data.privateMessage.conversation_id && i < 10
+            ? _c(
+                "a",
+                {
+                  staticClass:
+                    "btn btn-outline-primary text-secondary dropdown-item",
+                  staticStyle: {
+                    "text-overflow": "ellipsis",
+                    overflow: "hidden"
+                  },
+                  attrs: {
+                    href:
+                      "/conversations/" +
+                      notification.data.privateMessage.conversation_id
+                  }
+                },
+                [
+                  _c("img", {
+                    staticClass: "avatar-noti",
+                    attrs: { src: notification.data.follower.avatar }
+                  }),
+                  _vm._v("  |  "),
+                  _c("strong", [
+                    _vm._v(_vm._s(notification.data.follower.name) + ":")
+                  ]),
+                  _vm._v(
+                    ' "' +
+                      _vm._s(notification.data.privateMessage.message) +
+                      '"\n    '
+                  )
+                ]
+              )
+            : _vm._e()
+        ])
+      })
+    ],
+    2
   )
 }
 var staticRenderFns = []

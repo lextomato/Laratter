@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);/*!
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+
+/*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
@@ -10466,9 +10468,103 @@ a.text-dark:focus {
   }
 }
 
+body {
+  padding-top: 55px;
+  /* Relleno superior igual a la altura de la cabecera*/
+}
+
+input[type="file"]#sub-archivo {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-fixed-top {
+  width: 100%;
+  /* hacemos que la cabecera ocupe el ancho completo de la página */
+  left: 0;
+  /* Posicionamos la cabecera al lado izquierdo */
+  top: 0;
+  /* Posicionamos la cabecera pegada arriba */
+  position: fixed;
+  /* Hacemos que la cabecera tenga una posición fija */
+  z-index: 2;
+}
+
+#general {
+  background: #bbfcef;
+  background: -webkit-gradient(left top, right top, color-stop(0%, #bbfcef), color-stop(47%, #3fe9cf), color-stop(100%, #d0f1ea));
+  background: -webkit-gradient(linear, left top, right top, from(#bbfcef), color-stop(47%, #3fe9cf), to(#d0f1ea));
+  background: linear-gradient(to right, #bbfcef 0%, #3fe9cf 47%, #d0f1ea 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbfcef', endColorstr='#d0f1ea', GradientType=1 );
+}
+
+.width-noti {
+  max-width: 375px;
+  max-height: 470px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.altura-noti {
+  height: 30px !important;
+}
+
+.avatar-noti {
+  border-radius: 50%;
+  width: 35px;
+}
+
+.text-25 {
+  font-size: 65%;
+}
+
+.p-menor {
+  padding-bottom: 0.5px;
+}
+
+.nav-color,
+.bg-lightseagreen {
+  background-color: lightseagreen;
+}
+
+.borde {
+  border-color: lightseagreen;
+}
+
+.input2,
+.bg-aliceblue {
+  background-color: aliceblue;
+}
+
+.barra-user {
+  border-color: cornflowerblue;
+  background-color: aliceblue;
+  color: grey;
+}
+
+.text-grey {
+  color: grey;
+}
+
+.bg {
+  background-image: url(/images/fondo.png?cc1336135eb53ea1a9beec805776ece2);
+  /* Full height */
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 

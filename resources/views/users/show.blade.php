@@ -14,8 +14,8 @@
   @if (Gate::allows('dms', $user))
     <form action="/{{ $user->username }}/dms" method="post">
       {{ csrf_field() }}
-      <input type="text" name="message" class="form-control">
-      <button type="submit" class="btn btn-success">
+      <input type="text" name="message" class="form-control bg-aliceblue">
+      <button type="submit" class="btn btn-success mt-1">
         Enviar DM
       </button>
     </form>
@@ -27,7 +27,7 @@
       @if (session('success'))
         <span class="text-success">{{ session('success') }}</span>      
       @endif
-      <button class="btn btn-danger">Dejar de seguir</button>
+      <button class="btn btn-danger mt-1">Dejar de seguir</button>
     </form>
   @else      
     <form action="/{{ $user->username }}/follow" method="post">

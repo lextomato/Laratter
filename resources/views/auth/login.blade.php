@@ -5,9 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header bg-lightseagreen">{{ __('Login') }}</div>
 
-                <div class="card-body">
+                <div class="card-body bg-aliceblue">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -60,13 +60,14 @@
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
+                                <br>
+                                <a href="/auth/facebook" class="btn btn-primary mt-2">
+                                    Login con facebook
+                                </a>
                             </div>
                         </div>
                     </form>
                     <br>
-                    <a href="/auth/facebook" class="btn btn-primary">
-                        Login con facebook
-                    </a>
                 </div>
             </div>
         </div>

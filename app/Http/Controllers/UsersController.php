@@ -6,6 +6,7 @@ use App\Conversation;
 use App\PrivateMessage;
 use App\User;
 use App\Notifications\UserFollowed;
+use App\Notifications\UserMessage;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -78,6 +79,8 @@ class UsersController extends Controller
             'user_id' => $me->id,
             'message' => $message,
         ]);
+
+        $user->notify(new UserMessage($privateMessage, $me));
 
         return redirect('/conversations/'.$conversation->id);
     }
