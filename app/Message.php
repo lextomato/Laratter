@@ -17,7 +17,7 @@ class Message extends Model
 
     public function getImageAttribute($image)
     {
-        if (!$image || starts_with($image, 'http')) {
+        if (!$image || starts_with($image, 'https')) {
             return $image;
         }
 
