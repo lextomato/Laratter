@@ -6,6 +6,9 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+    if (env('APP_ENV') === 'production') {
+        URL::forceSchema('https');
+        }
     /**
      * Bootstrap any application services.
      *
