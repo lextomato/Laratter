@@ -1,11 +1,11 @@
 <template>
   <div class="border border-primary dropdown-menu input2 width-noti">
     {{ empty() }}
-    <p class="altura-noti" v-for="(notification,i) in notifications">
-      <a :href="'/' + notification.data.follower.username" style="text-overflow: ellipsis; overflow: hidden" class="btn btn-outline-primary text-secondary dropdown-item" v-if="!notification.data.privateMessage.conversation_id && i<10">
+    <p v-for="(notification,i) in notifications">
+      <a :href="'/' + notification.data.follower.username" style="text-overflow: ellipsis; overflow: hidden" class="btn btn-outline-primary text-secondary dropdown-item" v-if="!notification.data.privateMessage.conversation_id && i<7">
         <img class="avatar-noti" v-bind:src="notification.data.follower.avatar">  |  <strong>@{{ notification.data.follower.username }}</strong> te ha seguido!
       </a>
-      <a :href="'/conversations/' + notification.data.privateMessage.conversation_id" style="text-overflow: ellipsis; overflow: hidden" class="btn btn-outline-primary text-secondary dropdown-item" v-if="notification.data.privateMessage.conversation_id && i<10">
+      <a :href="'/conversations/' + notification.data.privateMessage.conversation_id" style="text-overflow: ellipsis; overflow: hidden" class="btn btn-outline-primary text-secondary dropdown-item" v-if="notification.data.privateMessage.conversation_id && i<7">
         <img class="avatar-noti" v-bind:src="notification.data.follower.avatar">  |  <strong>{{ notification.data.follower.name }}:</strong> "{{ notification.data.privateMessage.message }}"
       </a>
     </p>

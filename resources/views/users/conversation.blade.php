@@ -44,7 +44,7 @@
                 <p class="text-25">hace {{ $interval->format('%a dias') }} </p>
                 @break
               @case($interval->format('%H') > 0)
-                <p class="text-25">hace {{ $interval->format('%H horas') }} </p>
+                <p class="text-25">hace {{ $interval->format('%h horas') }} </p>
                 @break
               @case($interval->format('%i') > 0)
                 <p class="text-25">hace {{ $interval->format('%i minutos') }} </p>
@@ -76,7 +76,7 @@
                 <p class="text-25">hace {{ $interval->format('%a dias') }} </p>
                 @break
               @case($interval->format('%H') > 0)
-                <p class="text-25">hace {{ $interval->format('%H horas') }} </p>
+                <p class="text-25">hace {{ $interval->format('%h horas') }} </p>
                 @break
               @case($interval->format('%i') > 0)
                 <p class="text-25">hace {{ $interval->format('%i minutos') }} </p>

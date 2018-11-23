@@ -59168,8 +59168,8 @@ var render = function() {
     [
       _vm._v("\n  " + _vm._s(_vm.empty()) + "\n  "),
       _vm._l(_vm.notifications, function(notification, i) {
-        return _c("p", { staticClass: "altura-noti" }, [
-          !notification.data.privateMessage.conversation_id && i < 10
+        return _c("p", [
+          !notification.data.privateMessage.conversation_id && i < 7
             ? _c(
                 "a",
                 {
@@ -59195,7 +59195,7 @@ var render = function() {
               )
             : _vm._e(),
           _vm._v(" "),
-          notification.data.privateMessage.conversation_id && i < 10
+          notification.data.privateMessage.conversation_id && i < 7
             ? _c(
                 "a",
                 {
